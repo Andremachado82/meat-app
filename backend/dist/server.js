@@ -3,6 +3,7 @@ exports.__esModule = true;
 var jsonServer = require("json-server");
 var fs = require("fs");
 var https = require("https");
+var auth_1 = require("./auth");
 var server = jsonServer.create();
 var router = jsonServer.router('db.json');
 var middlewares = jsonServer.defaults();
@@ -22,6 +23,9 @@ server.use(function (req, res, next) {
     // Continue to JSON Server router
     next();
 });
+// tslint:disable-next-line: comment-format
+//middleware de login
+server.post('/login', auth_1.handleAuthentication);
 // Use default router
 server.use(router);
 var options = {
