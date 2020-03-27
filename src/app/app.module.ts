@@ -22,6 +22,7 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { OrderSumaryComponent } from './order-sumary/order-sumary.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './security/login/login.component';
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
 // import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { LoginComponent } from './security/login/login.component';
     OrderSumaryComponent,
     NotFoundComponent,
     LoginComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,
