@@ -1,3 +1,4 @@
+import { LoggedInGuard } from './../security/loggedin.guard';
 import { LoginService } from './../security/login/login.service';
 import { NotificationService } from './messages/notification.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,7 +30,8 @@ export class SharedModule {
         RestaurantsService,
         OrderService,
         NotificationService,
-        LoginService
+        LoginService,
+        LoggedInGuard
       ]
     }
   }
