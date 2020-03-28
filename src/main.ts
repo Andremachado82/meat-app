@@ -9,4 +9,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+// tslint:disable-next-line: comment-format
+platformBrowserDynamic().bootstrapModule(AppModule) //{ preserveWhitespaces: true });
