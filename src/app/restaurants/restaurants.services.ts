@@ -1,4 +1,3 @@
-import { ErrorHandler } from './../app.error-handler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable'
 
