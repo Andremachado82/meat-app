@@ -8,6 +8,8 @@ import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderService } from './order.service';
 import { RadioOption } from './../shared/radio/radio-option.model';
 
+import { tap } from 'rxjs/operators'
+
 @Component({
   selector: 'mt-order',
   templateUrl: './order.component.html'
@@ -46,7 +48,7 @@ export class OrderComponent implements OnInit {
       number: this.formBuilder.control('', [Validators.required, Validators.pattern(this.munberPattern)]),
       optionalAddress: this.formBuilder.control(''),
       paymentOption: this.formBuilder.control('', [Validators.required])
-    }, { validators: [OrderComponent.equalsTo], updateOn: 'blur' })
+    }, { validators: [OrderComponent.equalsTo], updateOn: 'change' })
   }
 
   // tslint:disable-next-line: member-ordering
@@ -93,9 +95,9 @@ export class OrderComponent implements OnInit {
       .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id));
 
     this.orderService.checkOrder(order)
-      .do((orderId: string) => {
+      .pipe(tap((orderId: string) => {
         this.orderId = orderId
-      })
+      }))
       .subscribe((orderId: string) => {
         this.router.navigate(['/order-sumary'])
         this.orderService.clear()
